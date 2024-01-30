@@ -144,16 +144,14 @@ export const Footer = () => {
           <div>
             <p className="font-normal text-xl text-[#141624]">
               Meta
-              <span className="font-extrabold text-xl text-[#141624]">
-                Blog
-              </span>
+              <span className="font-bold text-xl text-[#141624]">Blog</span>
             </p>
             <p className="font-normal text-base text-[#3B3C4A]">
               © All Rights Reserved.
             </p>
           </div>
         </div>
-        <div className="flex gap-8 items-center">
+        <div className="flex gap-8 items-center text-[#3B3C4A]">
           <p>Terms of Use</p>
           <p>Privacy Policy</p>
           <p>Cookie Policy</p>
