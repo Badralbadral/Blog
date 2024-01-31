@@ -1,4 +1,7 @@
+import { useRouter } from "next/router";
+
 export const Header = () => {
+  const router = useRouter();
   return (
     <div className="mb-[100px] w-full p-[10px] flex justify-between items-center">
       <div>
@@ -59,11 +62,30 @@ export const Header = () => {
           />
         </svg>
       </div>
-      <ul className="flex gap-10 font-normal text-base text-[#3B3C4A]">
-        <li>Home</li>
-        <li>Blog</li>
-        <li>Blog</li>
-      </ul>
+      <div className="flex gap-10 font-normal text-base text-[#3B3C4A] ">
+        <button
+          className="hover:underline "
+          onClick={() => {
+            router.push(`/`);
+          }}
+        >
+          Home
+        </button>
+        <button
+          onClick={() => {
+            router.push(`/allBlogs/blogList`);
+          }}
+        >
+          Blog
+        </button>
+        <button
+          onClick={() => {
+            router.push(`/Contact`);
+          }}
+        >
+          Blog
+        </button>
+      </div>
       <button className="w-[166px] h-9 bg-[#F4F4F5] text-sm font-normal text-[#A1A1AA] p-2 rounded-[5px] flex items-center justify-between">
         Search
         <svg

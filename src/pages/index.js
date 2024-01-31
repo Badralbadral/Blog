@@ -23,7 +23,6 @@ export async function getStaticProps() {
     "https://dev.to/api/articles?top=1&per_page=9&page=2"
   );
   const news = await allNews.json();
-  console.log(news);
 
   return {
     props: {
