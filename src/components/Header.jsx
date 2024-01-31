@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 export const Header = () => {
   const router = useRouter();
   return (
-    <div className="mb-[100px] w-full p-[10px] flex justify-between items-center">
+    <div className="mb-[100px] w-full h-[100px] p-[10px] flex justify-between items-center">
       <div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -62,28 +62,36 @@ export const Header = () => {
           />
         </svg>
       </div>
-      <div className="flex gap-10 font-normal text-base text-[#3B3C4A] ">
+      <div className="flex gap-10 font-normal text-base text-[#3B3C4A] underline-offset-4">
         <button
-          className="hover:underline "
+          className="group transition-all duration-300 ease-in-out"
           onClick={() => {
             router.push(`/`);
           }}
         >
-          Home
+          <span class="bg-left-bottom bg-gradient-to-r from-gray-500 to-gray-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
+            Home
+          </span>
         </button>
         <button
+          className="group transition-all duration-300 ease-in-out"
           onClick={() => {
             router.push(`/allBlogs/blogList`);
           }}
         >
-          Blog
+          <span class="bg-left-bottom bg-gradient-to-r from-gray-500 to-gray-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
+            Blog
+          </span>
         </button>
         <button
+          className="group transition-all duration-300 ease-in-out"
           onClick={() => {
-            router.push(`/Contact`);
+            router.push(`/contact`);
           }}
         >
-          Blog
+          <span class="bg-left-bottom bg-gradient-to-r from-gray-500 to-gray-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
+            Contact
+          </span>
         </button>
       </div>
       <button className="w-[166px] h-9 bg-[#F4F4F5] text-sm font-normal text-[#A1A1AA] p-2 rounded-[5px] flex items-center justify-between">

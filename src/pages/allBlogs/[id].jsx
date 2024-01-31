@@ -1,22 +1,14 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { Categories } from "@/components/Categories";
 
 export default function blog({ data }) {
   return (
     <div className="flex flex-col w-full mb-8">
+      <Categories />
       <p className="font-bold text-2xl text-[#181A2A] mb-[30px]">
         All Blog Post
       </p>
-      <div className=" flex gap-5 text-[#495057] text-sm font-bold mb-8">
-        <Link className="text-[#D4A373]" href={`/blogs`}>
-          All
-        </Link>
-        <Link href={`/blogs/design`}>Design</Link>
-        <Link href={`/blogs/travel`}>Travel</Link>
-        <Link href={`/blogs/fashion`}>Fashion</Link>
-        <Link href={`/blogs/technology`}>Technology</Link>
-        <Link href={`/blogs/branding`}>Branding</Link>
-      </div>
       <div className="flex flex-col items-center">
         <div className="grid grid-cols-3 gap-5">
           {data.map((e, index) => {
@@ -46,13 +38,23 @@ export default function blog({ data }) {
                   </div>
                 </div>
                 <div className="flex flex-col h-full justify-between">
-                  <h3 className="font-semibold text-2xl text-[#181A2A]">
+                  <h3 className="font-semibold text-xl text-[#181A2A]">
                     {e.title}
                   </h3>
-                  <p className="font-normal text-base text-[#97989F]">
-                    {e.readable_publish_date}{" "}
-                    {new Date(data[0].created_at).getFullYear()}
-                  </p>
+                  <div className="flex">
+                    <img
+                      src={e.user.profile_image}
+                      width={`36px`}
+                      className="rounded-full mr-3"
+                    />
+                    <p className="mr-[20px] text-base text-[#97989F] font-medium">
+                      {e.user.name}
+                    </p>
+                    <p className="font-normal text-base text-[#97989F]">
+                      {e.readable_publish_date}{" "}
+                      {new Date(data[0].created_at).getFullYear()}
+                    </p>
+                  </div>
                 </div>
               </div>
             );

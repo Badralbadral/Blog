@@ -1,4 +1,7 @@
+import { useRouter } from "next/router";
+
 export const Footer = () => {
+  const router = useRouter();
   return (
     <div className="w-[1920px] h-[495px] border-t-[1px] pt-16 px-[352px] flex flex-col gap-[25px] bg-[#E8E8EA]">
       <div className="flex justify-between">
@@ -20,11 +23,38 @@ export const Footer = () => {
             </div>
           </div>
         </div>
-        <ul className="flex flex-col gap-2 text-base font-normal text-[#3B3C4A]]">
-          <li>Home</li>
-          <li>Blog</li>
-          <li>Contact</li>
-        </ul>
+        <div className="flex flex-col gap-2 font-normal text-base text-[#3B3C4A] underline-offset-4">
+          <button
+            className="group transition-all duration-300 ease-in-out"
+            onClick={() => {
+              router.push(`/`);
+            }}
+          >
+            <span class="bg-left-bottom bg-gradient-to-r from-gray-500 to-gray-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
+              Home
+            </span>
+          </button>
+          <button
+            className="group transition-all duration-300 ease-in-out"
+            onClick={() => {
+              router.push(`/allBlogs/blogList`);
+            }}
+          >
+            <span class="bg-left-bottom bg-gradient-to-r from-gray-500 to-gray-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
+              Blog
+            </span>
+          </button>
+          <button
+            className="group transition-all duration-300 ease-in-out"
+            onClick={() => {
+              router.push(`/contact`);
+            }}
+          >
+            <span class="bg-left-bottom bg-gradient-to-r from-gray-500 to-gray-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
+              Contact
+            </span>
+          </button>
+        </div>
         <div className="flex gap-[26px] pr-40">
           <svg
             xmlns="http://www.w3.org/2000/svg"
