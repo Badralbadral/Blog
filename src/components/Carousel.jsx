@@ -1,12 +1,13 @@
 export const Carousel = ({ data }) => {
-  const tags = data[0].tag_list;
   return (
     <div className="carousel w-[1216px] h-[600px]">
-      {data.map((e) => {
+      {data.map((e, index) => {
         return (
-          <div>
+          <div key={index}>
             <div
-              id={`#slide${e == 0 ? 1 : e == 1 ? 2 : e == 2 ? 3 : 4}`}
+              id={`slide${
+                index == 0 ? `1` : index == 1 ? `2` : index == 2 ? `3` : `4`
+              }`}
               className="carousel-item w-full h-full flex flex-col gap-[35px] rounded-xl"
               style={{
                 backgroundImage: `url(${e.social_image})`,
@@ -17,10 +18,28 @@ export const Carousel = ({ data }) => {
                 height: "600px",
               }}
             >
-              <div className="bg-black w-full h-full rounded-xl bg-opacity-15 flex flex-col-reverse p-2">
+              <div className="absolute top-[831px] flex transform -translate-y-1/2 w-fit gap-[9px] text-[#696A75] ml-[1111px]">
+                <a
+                  href={`#slide${
+                    index == 0 ? `4` : index == 1 ? `1` : index == 2 ? `2` : `3`
+                  }`}
+                  className="btn btn-square rounded-[6px]"
+                >
+                  ❮
+                </a>
+                <a
+                  href={`#slide${
+                    index == 0 ? `2` : index == 1 ? `3` : index == 2 ? `4` : `1`
+                  }`}
+                  className="btn btn-square rounded-[6px]"
+                >
+                  ❯
+                </a>
+              </div>
+              {/* <div className="bg-black w-full h-full rounded-xl bg-opacity-15 flex flex-col-reverse p-2">
                 <div className="bg-white w-[598px] h-[252px] rounded-xl p-10 border-[1px] border-[#E8E8EA] flex flex-col gap-6">
                   <div className="flex gap-2">
-                    {tags.map((tag, index) => {
+                    {e.tag_list.map((tag, index) => {
                       return (
                         <p
                           key={index}
@@ -39,21 +58,7 @@ export const Carousel = ({ data }) => {
                     {new Date(e.created_at).getFullYear()}
                   </p>
                 </div>
-              </div>
-            </div>
-            <div className=" absolute top-[831px] flex transform -translate-y-1/2 w-fit gap-[9px] text-[#696A75] ml-[1111px]">
-              <a
-                href={`#slide${e == 0 ? 4 : e == 1 ? 1 : e == 2 ? 2 : 3}`}
-                className="btn btn-square rounded-[6px]"
-              >
-                ❮
-              </a>
-              <a
-                href={`#slide${e == 0 ? 2 : e == 1 ? 3 : e == 2 ? 4 : 1}`}
-                className="btn btn-square rounded-[6px]"
-              >
-                ❯
-              </a>
+              </div> */}
             </div>
           </div>
         );

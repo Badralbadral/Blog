@@ -1,10 +1,23 @@
+import { useState } from "react";
+
 export const BasicNews = ({ data }) => {
+  const [articles, setArticles] = useState(data);
+  const [pageNum, setPageNum] = useState(4);
+
+  async function loadMore() {
+    const res = await fetch(
+      `https://dev.to/api/articles?top=7&per_page=3&page=${pageNum}`
+    );
+    const loaded = await res.json();
+    setArticles([...articles, ...loaded]);
+    setPageNum(pageNum + 1);
+  }
   return (
     <div>
       <p className="font-bold text-2xl text-[#181A2A] mb-[30px]">Latest News</p>
       <div className="flex flex-col items-center">
         <div className="grid grid-cols-3 gap-5">
-          {data.map((e, index) => {
+          {articles.map((e, index) => {
             return (
               <div
                 key={index}
@@ -43,7 +56,10 @@ export const BasicNews = ({ data }) => {
             );
           })}
         </div>
-        <button className="mt-[100px] mb-[100px] flex rounded-md border-[1px] border-[#696A75] border-opacity-35 py-3 px-5 text-[#696A75] font-medium text-base">
+        <button
+          onClick={loadMore}
+          className="mt-[100px] mb-[100px] flex rounded-md border-[1px] border-[#696A75] border-opacity-35 py-3 px-5 text-[#696A75] font-medium text-base"
+        >
           Load More
         </button>
       </div>

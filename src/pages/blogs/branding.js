@@ -39,7 +39,7 @@ export default function blog({ data }) {
                   <h3 className="font-semibold text-xl text-[#181A2A]">
                     {e.title}
                   </h3>
-                  <div className="flex">
+                  <div className="flex items-center">
                     <img
                       src={e.user.profile_image}
                       width={`36px`}

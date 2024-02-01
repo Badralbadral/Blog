@@ -20,7 +20,7 @@ export async function getStaticProps() {
   const dataSecond = await trend.json();
 
   const allNews = await fetch(
-    "https://dev.to/api/articles?top=1&per_page=9&page=2"
+    "https://dev.to/api/articles?top=7&per_page=9&page=1"
   );
   const news = await allNews.json();
 
