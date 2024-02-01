@@ -1,4 +1,19 @@
+import { useState } from "react";
+
 export const Carousel = ({ data }) => {
+  const [num, setNum] = useState(0);
+  function addNum() {
+    setNum(num + 1);
+    if (num > 3) {
+      setNum(1);
+    }
+  }
+  function minusNum() {
+    setNum(num - 1);
+    if (num < 2) {
+      setNum(4);
+    }
+  }
   return (
     <div className="carousel w-[1216px] h-[600px]">
       {data.map((e, index) => {
@@ -18,25 +33,7 @@ export const Carousel = ({ data }) => {
                 height: "600px",
               }}
             >
-              <div className="absolute top-[831px] flex transform -translate-y-1/2 w-fit gap-[9px] text-[#696A75] ml-[1111px]">
-                <a
-                  href={`#slide${
-                    index == 0 ? `4` : index == 1 ? `1` : index == 2 ? `2` : `3`
-                  }`}
-                  className="btn btn-square rounded-[6px]"
-                >
-                  ❮
-                </a>
-                <a
-                  href={`#slide${
-                    index == 0 ? `2` : index == 1 ? `3` : index == 2 ? `4` : `1`
-                  }`}
-                  className="btn btn-square rounded-[6px]"
-                >
-                  ❯
-                </a>
-              </div>
-              {/* <div className="bg-black w-full h-full rounded-xl bg-opacity-15 flex flex-col-reverse p-2">
+              <div className="bg-black w-full h-full rounded-xl bg-opacity-15 flex flex-col-reverse p-2">
                 <div className="bg-white w-[598px] h-[252px] rounded-xl p-10 border-[1px] border-[#E8E8EA] flex flex-col gap-6">
                   <div className="flex gap-2">
                     {e.tag_list.map((tag, index) => {
@@ -58,7 +55,27 @@ export const Carousel = ({ data }) => {
                     {new Date(e.created_at).getFullYear()}
                   </p>
                 </div>
-              </div> */}
+              </div>
+              <div className="absolute top-[831px] flex transform -translate-y-1/2 w-fit gap-[9px] text-[#696A75] ml-[1111px]">
+                <a
+                  onClick={() => {
+                    minusNum();
+                  }}
+                  href={`#slide${num}`}
+                  className="btn btn-square rounded-[6px]"
+                >
+                  ❮
+                </a>
+                <a
+                  href={`#slide${num}`}
+                  onClick={() => {
+                    addNum();
+                  }}
+                  className="btn btn-square rounded-[6px]"
+                >
+                  ❯
+                </a>
+              </div>
             </div>
           </div>
         );

@@ -1,15 +1,27 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { Categories } from "@/components/Categories";
+import { useState } from "react";
 
 export default function blog({ data }) {
+  const [articles, setArticles] = useState(data);
+  const [pageNum, setPageNum] = useState(2);
+
+  async function loadMore() {
+    const res = await fetch(
+      `https://dev.to/api/articles?tag=branding&per_page=3&page=${pageNum}`
+    );
+    const loaded = await res.json();
+    setArticles([...articles, ...loaded]);
+    setPageNum(pageNum + 1);
+  }
   return (
     <div className="flex flex-col w-full mb-8">
       <Categories />
       <p className="font-bold text-2xl text-[#181A2A] mb-[30px]">Branding</p>
       <div className="flex flex-col items-center">
         <div className="grid grid-cols-3 gap-5">
-          {data.map((e, index) => {
+          {articles.map((e, index) => {
             return (
               <div
                 key={index}
@@ -58,7 +70,10 @@ export default function blog({ data }) {
             );
           })}
         </div>
-        <button className="mt-[32px] mb-[80px] flex rounded-md border-[1px] border-[#696A75] border-opacity-35 py-3 px-5 text-[#696A75] font-medium text-base w-fit">
+        <button
+          onClick={loadMore}
+          className="mt-[32px] mb-[80px] flex rounded-md border-[1px] border-[#696A75] border-opacity-35 py-3 px-5 text-[#696A75] font-medium text-base w-fit"
+        >
           Load More
         </button>
       </div>

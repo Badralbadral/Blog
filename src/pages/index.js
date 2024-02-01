@@ -11,7 +11,7 @@ export default function Home({ data, dataSecond, news }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch("https://dev.to/api/articles?top=1&per_page=4");
+  const res = await fetch("https://dev.to/api/articles?top=2&per_page=4");
   const data = await res.json();
 
   const trend = await fetch(
