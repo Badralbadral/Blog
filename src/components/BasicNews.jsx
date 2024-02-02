@@ -20,9 +20,8 @@ export const BasicNews = ({ data }) => {
         <div className="grid grid-cols-3 gap-5">
           {articles.map((e, index) => {
             return (
-              <Link href={`blogs/article/${e.id}`}>
+              <Link key={index} href={`blogs/article/${e.id}`}>
                 <div
-                  key={index}
                   className="w-[392px] h-[476px] rounded-xl p-4 border-[1px] border-[0
       #E8E8EA] flex flex-col justify-between gap-4"
                 >

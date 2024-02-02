@@ -60,29 +60,29 @@ export const Carousel = ({ data }) => {
                 </div>
               </div>
             </Link>
-            <div className="absolute top-[831px] flex transform -translate-y-1/2 w-fit gap-[9px] text-[#696A75] ml-[1111px]">
-              <a
-                onClick={() => {
-                  minusNum();
-                }}
-                href={`#slide${num}`}
-                className="btn btn-square rounded-[6px]"
-              >
-                ❮
-              </a>
-              <a
-                href={`#slide${num}`}
-                onClick={() => {
-                  addNum();
-                }}
-                className="btn btn-square rounded-[6px]"
-              >
-                ❯
-              </a>
-            </div>
           </div>
         );
       })}
+      <div className="absolute top-[831px] flex transform -translate-y-1/2 w-fit gap-[9px] text-[#696A75] ml-[1111px]">
+        <a
+          onClick={() => {
+            minusNum();
+          }}
+          href={`#slide${num}`}
+          className="btn btn-square rounded-[6px]"
+        >
+          ❮
+        </a>
+        <a
+          href={`#slide${num}`}
+          onClick={() => {
+            addNum();
+          }}
+          className="btn btn-square rounded-[6px]"
+        >
+          ❯
+        </a>
+      </div>
     </div>
   );
 };

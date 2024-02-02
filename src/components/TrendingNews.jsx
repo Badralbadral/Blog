@@ -9,9 +9,8 @@ export const TrendingNews = ({ data }) => {
       <div className="flex gap-[30px] max-[390px]:flex-col  max-[390px]:items-center">
         {data.map((e, index) => {
           return (
-            <Link href={`blogs/article/${e.id}`}>
+            <Link key={index} href={`blogs/article/${e.id}`}>
               <div
-                key={index}
                 style={{
                   backgroundImage: `url(${e.social_image})`,
                   backgroundRepeat: "no-repeat",
