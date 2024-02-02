@@ -3,9 +3,10 @@ import { useRouter } from "next/router";
 export const Header = () => {
   const router = useRouter();
   return (
-    <div className="mb-[100px] w-full h-[100px] p-[10px] flex justify-between items-center">
+    <div className="mb-[100px] w-full h-[100px] p-[10px] flex justify-between items-center max-[390px]:w-[390px] max-[390px]:h-[70px] max-[390px]:p-5 max-[390px]:mb-[0px]">
       <div>
         <svg
+          className="max-[390px]:w-[140px]"
           xmlns="http://www.w3.org/2000/svg"
           width={158}
           height={36}
@@ -62,7 +63,35 @@ export const Header = () => {
           />
         </svg>
       </div>
-      <div className="flex gap-10 font-normal text-base text-[#3B3C4A] underline-offset-4">
+      <svg
+        width={32}
+        height={32}
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="max-[390px]:block hidden"
+      >
+        <g clipPath="url(#clip0_2245_592)">
+          <path
+            d="M26.7333 14.6667H5.26667C4.56711 14.6667 4 15.2338 4 15.9333V16.0667C4 16.7662 4.56711 17.3333 5.26667 17.3333H26.7333C27.4329 17.3333 28 16.7662 28 16.0667V15.9333C28 15.2338 27.4329 14.6667 26.7333 14.6667Z"
+            fill="#1A1A1A"
+          />
+          <path
+            d="M26.7333 21.3333H5.26667C4.56711 21.3333 4 21.9004 4 22.6V22.7333C4 23.4329 4.56711 24 5.26667 24H26.7333C27.4329 24 28 23.4329 28 22.7333V22.6C28 21.9004 27.4329 21.3333 26.7333 21.3333Z"
+            fill="#1A1A1A"
+          />
+          <path
+            d="M26.7333 8H5.26667C4.56711 8 4 8.56711 4 9.26667V9.4C4 10.0996 4.56711 10.6667 5.26667 10.6667H26.7333C27.4329 10.6667 28 10.0996 28 9.4V9.26667C28 8.56711 27.4329 8 26.7333 8Z"
+            fill="#1A1A1A"
+          />
+        </g>
+        <defs>
+          <clipPath id="clip0_2245_592">
+            <rect width={32} height={32} fill="white" />
+          </clipPath>
+        </defs>
+      </svg>
+      <div className="flex gap-10 font-normal text-base text-[#3B3C4A] underline-offset-4 max-[390px]:hidden">
         <button
           className="group transition-all duration-300 ease-in-out"
           onClick={() => {
@@ -76,7 +105,7 @@ export const Header = () => {
         <button
           className="group transition-all duration-300 ease-in-out"
           onClick={() => {
-            router.push(`/blogs/List`);
+            router.push(`/blogs/id`);
           }}
         >
           <span className="bg-left-bottom bg-gradient-to-r from-gray-500 to-gray-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
@@ -94,7 +123,7 @@ export const Header = () => {
           </span>
         </button>
       </div>
-      <button className="w-[166px] h-9 bg-[#F4F4F5] text-sm font-normal text-[#A1A1AA] p-2 rounded-[5px] flex items-center justify-between">
+      <button className="w-[166px] h-9 bg-[#F4F4F5] text-sm font-normal text-[#A1A1AA] p-2 rounded-[5px] flex items-center justify-between max-[390px]:hidden">
         Search
         <svg
           xmlns="http://www.w3.org/2000/svg"

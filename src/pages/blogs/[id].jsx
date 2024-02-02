@@ -3,13 +3,13 @@ import Link from "next/link";
 import { Categories } from "@/components/Categories";
 import { useState } from "react";
 
-export default function blog({ data }) {
+export default function Blog({ data }) {
   const [articles, setArticles] = useState(data);
   const [pageNum, setPageNum] = useState(2);
 
   async function loadMore() {
     const res = await fetch(
-      `https://dev.to/api/articles?per_page=3&page=${pageNum}`
+      `https://dev.to/api/articles?per_page=9&page=${pageNum}`
     );
     const loaded = await res.json();
     setArticles([...articles, ...loaded]);
@@ -23,10 +23,10 @@ export default function blog({ data }) {
         All Blog Post
       </p>
       <div className="flex flex-col items-center">
-        <Link href={`blogs/article/sdsf`}>
-          <div className="grid grid-cols-3 gap-5">
-            {articles.map((e, index) => {
-              return (
+        <div className="grid grid-cols-3 gap-5">
+          {articles.map((e, index) => {
+            return (
+              <Link href={`article/${e.id}`}>
                 <div
                   key={index}
                   className="w-[392px] h-[476px] rounded-xl p-4 border-[1px] border-[0
@@ -71,10 +71,10 @@ export default function blog({ data }) {
                     </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        </Link>
+              </Link>
+            );
+          })}
+        </div>
         <button
           onClick={loadMore}
           className="mt-[32px] mb-[80px] flex rounded-md border-[1px] border-[#696A75] border-opacity-35 py-3 px-5 text-[#696A75] font-medium text-base w-fit"

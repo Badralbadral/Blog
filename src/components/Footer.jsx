@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 export const Footer = () => {
   const router = useRouter();
   return (
-    <div className="w-[1920px] h-[495px] border-t-[1px] pt-16 px-[352px] flex flex-col gap-[25px] bg-[#E8E8EA]">
-      <div className="flex justify-between">
-        <div className="flex flex-col gap-6 w-[289px] h-[236px] mb-[25px]">
+    <div className="w-[1920px] h-[495px] border-t-[1px] pt-16 px-[352px] flex flex-col gap-[25px] bg-[#E8E8EA] max-[390px]:w-[390px] max-[390px]:h-[300px] max-[390px]:px-11 max-[390px]:pt-6 max-[390px]:items-center max-[390px]:bg-white max-[390px]:border-t-[1px] ">
+      <div className="flex justify-between max-[390px]:justify-center max-[390px]:flex-col">
+        <div className="flex flex-col gap-6 w-[289px] h-[236px] mb-[25px] max-[390px]:hidden">
           <h5 className="text-[#181A2A] font-semibold text-lg">About</h5>
           <p className="text-[#696A75] font-normal text-base pr-8">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -23,7 +23,7 @@ export const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-2 font-normal text-base text-[#3B3C4A] underline-offset-4">
+        <div className="flex flex-col gap-2 font-normal text-base text-[#3B3C4A] underline-offset-4 max-[390px]:mb-5">
           <button
             className="group transition-all duration-300 ease-in-out"
             onClick={() => {
@@ -55,7 +55,7 @@ export const Footer = () => {
             </span>
           </button>
         </div>
-        <div className="flex gap-[26px] pr-40">
+        <div className="flex gap-[27px] pr-40 max-[390px]:pr-[0px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={16}
@@ -145,7 +145,7 @@ export const Footer = () => {
           </svg>
         </div>
       </div>
-      <div className="py-8 flex justify-between border-t-[1px] border-[#DCDDDF]">
+      <div className="py-8 flex justify-between border-t-[1px] border-[#DCDDDF] max-[390px]:flex-col max-[390px]:justify-center max-[390px]:py-1 max-[390px]:border-t-[0px]">
         <div className="flex gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -181,7 +181,7 @@ export const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="flex gap-8 items-center text-[#3B3C4A]">
+        <div className="flex gap-8 items-center text-[#3B3C4A] max-[390px]:hidden">
           <p>Terms of Use</p>
           <p>Privacy Policy</p>
           <p>Cookie Policy</p>
