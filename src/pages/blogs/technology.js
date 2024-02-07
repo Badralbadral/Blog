@@ -9,7 +9,7 @@ export default function blog({ data }) {
 
   async function loadMore() {
     const res = await fetch(
-      `https://dev.to/api/articles?tag=technology&per_page=9&page=${pageNum}`
+      `https://dev.to/api/articles?tag=technology&per_page=12&page=${pageNum}`
     );
     const loaded = await res.json();
     setArticles([...articles, ...loaded]);
