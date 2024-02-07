@@ -46,7 +46,7 @@ const Contact = () => {
             className=" resize-none rounded-[5px] border-[1px] border-[#DCDDDF] py-[14px] pl-[14px] pr-5 text-base w-[478px] h-[134px]"
             placeholder="Write a message"
           ></textarea>
-          <button className="bg-[#4B6BFB] rounded-md py-[10px] px-4">
+          <button className="bg-[#4B6BFB] rounded-md py-[10px] px-4 w-[130px] text-white">
             Send Message
           </button>
         </div>
