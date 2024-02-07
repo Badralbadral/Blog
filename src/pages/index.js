@@ -2,7 +2,7 @@ import { MostPopular, TrendingNews, BasicNews } from "@/components";
 
 export default function Home({ data, dataSecond, news }) {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center ">
       <MostPopular data={data} />
       <TrendingNews data={dataSecond} />
       <BasicNews data={news} />
