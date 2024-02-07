@@ -12,6 +12,7 @@ export default function blog({ data }) {
       `https://dev.to/api/articles?tag=branding&per_page=9&page=${pageNum}`
     );
     const loaded = await res.json();
+
     setArticles([...articles, ...loaded]);
     setPageNum(pageNum + 1);
   }
@@ -88,6 +89,7 @@ export async function getServerSideProps() {
     "https://dev.to/api/articles?tag=branding&per_page=12"
   );
   const data = await res.json();
+  console.log(data);
   return {
     props: {
       data,
