@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 export const Footer = () => {
   const router = useRouter();
   return (
-    <div className="w-[2240px] h-[495px] border-t-[1px] pt-16 px-[462px] flex flex-col gap-[25px] bg-[#E8E8EA] max-[390px]:w-[390px] max-[390px]:h-[300px] max-[390px]:px-11 max-[390px]:pt-6 max-[390px]:items-center max-[390px]:bg-white max-[390px]:border-t-[1px] ">
+    <div className="w-[2240px] h-[495px] border-t-[1px] pt-16 px-[492px] flex flex-col gap-[25px] bg-[#E8E8EA] max-[390px]:w-[390px] max-[390px]:h-[300px] max-[390px]:px-11 max-[390px]:pt-6 max-[390px]:items-center max-[390px]:bg-white max-[390px]:border-t-[1px] ">
       <div className="flex justify-between max-[390px]:justify-center max-[390px]:flex-col">
         <div className="flex flex-col gap-6 w-[289px] h-[236px] mb-[25px] max-[390px]:hidden">
           <h5 className="text-[#181A2A] font-semibold text-lg">About</h5>
