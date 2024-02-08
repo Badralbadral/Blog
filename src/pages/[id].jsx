@@ -1,32 +1,30 @@
-import { useRouter } from "next/router";
 import Link from "next/link";
 import { Categories } from "@/components/Categories";
 import { useState } from "react";
 
-export default function blog({ data }) {
+export default function Blog({ data }) {
   const [articles, setArticles] = useState(data);
   const [pageNum, setPageNum] = useState(2);
 
   async function loadMore() {
     const res = await fetch(
-      `https://dev.to/api/articles?tag=branding&per_page=12&page=${pageNum}`
+      `https://dev.to/api/articles?per_page=12&page=${pageNum}`
     );
     const loaded = await res.json();
-
     setArticles([...articles, ...loaded]);
     setPageNum(pageNum + 1);
   }
+
   return (
     <div className="flex flex-col w-full mb-8">
       <Categories />
-      <p className="font-bold text-2xl text-[#181A2A] mb-[30px]">Branding</p>
+      <p className="font-bold text-2xl text-[#181A2A] mb-[30px]"></p>
       <div className="flex flex-col items-center">
         <div className="grid grid-cols-3 gap-5">
           {articles.map((e, index) => {
             return (
-              <Link href={`article/${e.id}`}>
+              <Link key={index} href={`article/${e.id}`}>
                 <div
-                  key={index}
                   className="w-[392px] h-[476px] rounded-xl p-4 border-[1px] border-[0
       #E8E8EA] flex flex-col justify-between gap-4"
                 >
@@ -53,7 +51,7 @@ export default function blog({ data }) {
                     <h3 className="font-semibold text-xl text-[#181A2A]">
                       {e.title}
                     </h3>
-                    <div className="flex items-center">
+                    <div className="flex">
                       <img
                         src={e.user.profile_image}
                         width={`36px`}
@@ -84,12 +82,15 @@ export default function blog({ data }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  const { query } = context;
+  const { id } = query;
   const res = await fetch(
-    "https://dev.to/api/articles?tag=branding&per_page=12"
+    id == "All"
+      ? `https://dev.to/api/articles?per_page=12`
+      : `https://dev.to/api/articles?per_page=12&tag=${id}`
   );
   const data = await res.json();
-  console.log(data);
   return {
     props: {
       data,
