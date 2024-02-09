@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import Link from "next/link";
 import { Categories } from "@/components/Categories";
 import { useState } from "react";
@@ -20,13 +19,13 @@ export default function Blog({ data }) {
     <div className="flex flex-col w-full mb-8">
       <Categories />
       <p className="font-bold text-2xl text-[#181A2A] mb-[30px]">
-        All Blog Post
+        All Blogs Post
       </p>
       <div className="flex flex-col items-center">
         <div className="grid grid-cols-3 gap-5">
           {articles.map((e, index) => {
             return (
-              <Link key={index} href={`/blogs/article/${e.id}`}>
+              <Link key={index} href={`article/${e.id}`}>
                 <div
                   className="w-[392px] h-[476px] rounded-xl p-4 border-[1px] border-[0
       #E8E8EA] flex flex-col justify-between gap-4"
@@ -85,8 +84,10 @@ export default function Blog({ data }) {
   );
 }
 
-export async function getServerSideProps() {
-  const res = await fetch("https://dev.to/api/articles?per_page=12");
+export async function getServerSideProps(context) {
+  const { query } = context;
+  const { id } = query;
+  const res = await fetch(`https://dev.to/api/articles?per_page=12`);
   const data = await res.json();
   return {
     props: {

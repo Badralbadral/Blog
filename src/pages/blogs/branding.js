@@ -8,7 +8,7 @@ export default function Blog({ data }) {
 
   async function loadMore() {
     const res = await fetch(
-      `https://dev.to/api/articles?per_page=12&page=${pageNum}`
+      `https://dev.to/api/articles?tag=branding&per_page=12&page=${pageNum}`
     );
     const loaded = await res.json();
     setArticles([...articles, ...loaded]);
@@ -18,7 +18,7 @@ export default function Blog({ data }) {
   return (
     <div className="flex flex-col w-full mb-8">
       <Categories />
-      <p className="font-bold text-2xl text-[#181A2A] mb-[30px]"></p>
+      <p className="font-bold text-2xl text-[#181A2A] mb-[30px]">Branding</p>
       <div className="flex flex-col items-center">
         <div className="grid grid-cols-3 gap-5">
           {articles.map((e, index) => {
@@ -82,13 +82,9 @@ export default function Blog({ data }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const { query } = context;
-  const { id } = query;
+export async function getServerSideProps() {
   const res = await fetch(
-    id == "All"
-      ? `https://dev.to/api/articles?per_page=12`
-      : `https://dev.to/api/articles?per_page=12&tag=${id}`
+    `https://dev.to/api/articles?tag=branding&per_page=12`
   );
   const data = await res.json();
   return {
