@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import Link from "next/link";
 import { Categories } from "@/components/Categories";
 import { useState } from "react";
