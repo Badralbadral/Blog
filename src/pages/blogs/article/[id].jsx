@@ -15,7 +15,7 @@ export default function Page({ data }) {
           {data.readable_publish_date} {new Date(data.created_at).getFullYear()}
         </p>
       </div>
-      {parse(data.body_html)}
+      <div className=" flex flex-col items-center">{parse(data.body_html)}</div>
     </div>
   );
 }
